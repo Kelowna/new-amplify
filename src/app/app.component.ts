@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
-      description: ['', Validators,required],
+      description: ['', Validators.required],
       city: ['', Validators.required]
     });
   }
