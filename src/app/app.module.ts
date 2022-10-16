@@ -1,29 +1,25 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { NgModule } from '@angular/core';
 import { AmplifyAuthenticatorModule } from '@aws-amplify/ui-angular';
 
+/* new form imports */
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { RestaurantsComponent } from './restaurants/restaurants.component';
-import { AmplifyAngularModule, AmplifyService } from 'aws-amplify-angular';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    RestaurantsComponent
-  ],
+  declarations: [AppComponent, RestaurantsComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    AmplifyAngularModule,
+    AmplifyAuthenticatorModule,
+    /* configuring form modules */
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [ 
-    AmplifyService
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {}
