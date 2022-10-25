@@ -4,4 +4,6 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   description: String!
   city: String!
   stars: Int
-} 
+  trouble: Boolean
+}
+ 

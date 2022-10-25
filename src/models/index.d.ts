@@ -10,6 +10,7 @@ export declare class Restaurant {
   readonly description: string;
   readonly city: string;
   readonly stars?: number | null;
+  readonly trouble?: boolean | null;
   readonly createdAt?: string | null;
   readonly updatedAt?: string | null;
   constructor(init: ModelInit<Restaurant, RestaurantMetaData>);
