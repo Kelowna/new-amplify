@@ -8,8 +8,12 @@ mutation CreateRestaurant(
     name
     description
     city
+    stars
     createdAt
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation UpdateRestaurant(
@@ -21,8 +25,12 @@ mutation UpdateRestaurant(
     name
     description
     city
+    stars
     createdAt
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }
 mutation DeleteRestaurant(
@@ -34,7 +42,11 @@ mutation DeleteRestaurant(
     name
     description
     city
+    stars
     createdAt
     updatedAt
+    _version
+    _deleted
+    _lastChangedAt
   }
 }

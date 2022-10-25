@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { DataStore } from '@aws-amplify/datastore';
 
 @Component({
   selector: 'app-root',

@@ -17,7 +17,8 @@ export class RestaurantsComponent implements OnInit {
     this.createForm = this.fb.group({
       name: ['', Validators.required],
       description: ['', Validators.required],
-      city: ['', Validators.required]
+      city: ['', Validators.required],
+      stars: ['', Validators.required]
     });
   }
 

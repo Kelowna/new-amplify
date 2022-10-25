@@ -20,12 +20,15 @@ export type CreateRestaurantInput = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
+  _version?: number | null;
 };
 
 export type ModelRestaurantConditionInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
+  stars?: ModelIntInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
@@ -70,14 +73,30 @@ export type ModelSizeInput = {
   between?: Array<number | null> | null;
 };
 
+export type ModelIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type Restaurant = {
   __typename: "Restaurant";
   id: string;
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type UpdateRestaurantInput = {
@@ -85,10 +104,13 @@ export type UpdateRestaurantInput = {
   name?: string | null;
   description?: string | null;
   city?: string | null;
+  stars?: number | null;
+  _version?: number | null;
 };
 
 export type DeleteRestaurantInput = {
   id: string;
+  _version?: number | null;
 };
 
 export type ModelRestaurantFilterInput = {
@@ -96,6 +118,7 @@ export type ModelRestaurantFilterInput = {
   name?: ModelStringInput | null;
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
+  stars?: ModelIntInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -121,6 +144,59 @@ export type ModelRestaurantConnection = {
   __typename: "ModelRestaurantConnection";
   items: Array<Restaurant | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type ModelSubscriptionRestaurantFilterInput = {
+  id?: ModelSubscriptionIDInput | null;
+  name?: ModelSubscriptionStringInput | null;
+  description?: ModelSubscriptionStringInput | null;
+  city?: ModelSubscriptionStringInput | null;
+  stars?: ModelSubscriptionIntInput | null;
+  and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+  or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
+};
+
+export type ModelSubscriptionIDInput = {
+  ne?: string | null;
+  eq?: string | null;
+  le?: string | null;
+  lt?: string | null;
+  ge?: string | null;
+  gt?: string | null;
+  contains?: string | null;
+  notContains?: string | null;
+  between?: Array<string | null> | null;
+  beginsWith?: string | null;
+  in?: Array<string | null> | null;
+  notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionStringInput = {
+  ne?: string | null;
+  eq?: string | null;
+  le?: string | null;
+  lt?: string | null;
+  ge?: string | null;
+  gt?: string | null;
+  contains?: string | null;
+  notContains?: string | null;
+  between?: Array<string | null> | null;
+  beginsWith?: string | null;
+  in?: Array<string | null> | null;
+  notIn?: Array<string | null> | null;
+};
+
+export type ModelSubscriptionIntInput = {
+  ne?: number | null;
+  eq?: number | null;
+  le?: number | null;
+  lt?: number | null;
+  ge?: number | null;
+  gt?: number | null;
+  between?: Array<number | null> | null;
+  in?: Array<number | null> | null;
+  notIn?: Array<number | null> | null;
 };
 
 export type CreateRestaurantMutation = {
@@ -129,8 +205,12 @@ export type CreateRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type UpdateRestaurantMutation = {
@@ -139,8 +219,12 @@ export type UpdateRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type DeleteRestaurantMutation = {
@@ -149,8 +233,12 @@ export type DeleteRestaurantMutation = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type GetRestaurantQuery = {
@@ -159,8 +247,12 @@ export type GetRestaurantQuery = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type ListRestaurantsQuery = {
@@ -171,10 +263,34 @@ export type ListRestaurantsQuery = {
     name: string;
     description: string;
     city: string;
+    stars?: number | null;
     createdAt: string;
     updatedAt: string;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
   } | null>;
   nextToken?: string | null;
+  startedAt?: number | null;
+};
+
+export type SyncRestaurantsQuery = {
+  __typename: "ModelRestaurantConnection";
+  items: Array<{
+    __typename: "Restaurant";
+    id: string;
+    name: string;
+    description: string;
+    city: string;
+    stars?: number | null;
+    createdAt: string;
+    updatedAt: string;
+    _version: number;
+    _deleted?: boolean | null;
+    _lastChangedAt: number;
+  } | null>;
+  nextToken?: string | null;
+  startedAt?: number | null;
 };
 
 export type OnCreateRestaurantSubscription = {
@@ -183,8 +299,12 @@ export type OnCreateRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type OnUpdateRestaurantSubscription = {
@@ -193,8 +313,12 @@ export type OnUpdateRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 export type OnDeleteRestaurantSubscription = {
@@ -203,8 +327,12 @@ export type OnDeleteRestaurantSubscription = {
   name: string;
   description: string;
   city: string;
+  stars?: number | null;
   createdAt: string;
   updatedAt: string;
+  _version: number;
+  _deleted?: boolean | null;
+  _lastChangedAt: number;
 };
 
 @Injectable({
@@ -222,8 +350,12 @@ export class APIService {
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -248,8 +380,12 @@ export class APIService {
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -274,8 +410,12 @@ export class APIService {
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -297,8 +437,12 @@ export class APIService {
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {
@@ -323,10 +467,15 @@ export class APIService {
             name
             description
             city
+            stars
             createdAt
             updatedAt
+            _version
+            _deleted
+            _lastChangedAt
           }
           nextToken
+          startedAt
         }
       }`;
     const gqlAPIServiceArguments: any = {};
@@ -344,63 +493,140 @@ export class APIService {
     )) as any;
     return <ListRestaurantsQuery>response.data.listRestaurants;
   }
-  OnCreateRestaurantListener: Observable<
+  async SyncRestaurants(
+    filter?: ModelRestaurantFilterInput,
+    limit?: number,
+    nextToken?: string,
+    lastSync?: number
+  ): Promise<SyncRestaurantsQuery> {
+    const statement = `query SyncRestaurants($filter: ModelRestaurantFilterInput, $limit: Int, $nextToken: String, $lastSync: AWSTimestamp) {
+        syncRestaurants(filter: $filter, limit: $limit, nextToken: $nextToken, lastSync: $lastSync) {
+          __typename
+          items {
+            __typename
+            id
+            name
+            description
+            city
+            stars
+            createdAt
+            updatedAt
+            _version
+            _deleted
+            _lastChangedAt
+          }
+          nextToken
+          startedAt
+        }
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    if (limit) {
+      gqlAPIServiceArguments.limit = limit;
+    }
+    if (nextToken) {
+      gqlAPIServiceArguments.nextToken = nextToken;
+    }
+    if (lastSync) {
+      gqlAPIServiceArguments.lastSync = lastSync;
+    }
+    const response = (await API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    )) as any;
+    return <SyncRestaurantsQuery>response.data.syncRestaurants;
+  }
+  OnCreateRestaurantListener(
+    filter?: ModelSubscriptionRestaurantFilterInput
+  ): Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateRestaurant">>
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnCreateRestaurant {
-        onCreateRestaurant {
+  > {
+    const statement = `subscription OnCreateRestaurant($filter: ModelSubscriptionRestaurantFilterInput) {
+        onCreateRestaurant(filter: $filter) {
           __typename
           id
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
-      }`
-    )
-  ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateRestaurant">>
-  >;
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onCreateRestaurant">>
+    >;
+  }
 
-  OnUpdateRestaurantListener: Observable<
+  OnUpdateRestaurantListener(
+    filter?: ModelSubscriptionRestaurantFilterInput
+  ): Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateRestaurant">>
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnUpdateRestaurant {
-        onUpdateRestaurant {
+  > {
+    const statement = `subscription OnUpdateRestaurant($filter: ModelSubscriptionRestaurantFilterInput) {
+        onUpdateRestaurant(filter: $filter) {
           __typename
           id
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
-      }`
-    )
-  ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateRestaurant">>
-  >;
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onUpdateRestaurant">>
+    >;
+  }
 
-  OnDeleteRestaurantListener: Observable<
+  OnDeleteRestaurantListener(
+    filter?: ModelSubscriptionRestaurantFilterInput
+  ): Observable<
     SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteRestaurant">>
-  > = API.graphql(
-    graphqlOperation(
-      `subscription OnDeleteRestaurant {
-        onDeleteRestaurant {
+  > {
+    const statement = `subscription OnDeleteRestaurant($filter: ModelSubscriptionRestaurantFilterInput) {
+        onDeleteRestaurant(filter: $filter) {
           __typename
           id
           name
           description
           city
+          stars
           createdAt
           updatedAt
+          _version
+          _deleted
+          _lastChangedAt
         }
-      }`
-    )
-  ) as Observable<
-    SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteRestaurant">>
-  >;
+      }`;
+    const gqlAPIServiceArguments: any = {};
+    if (filter) {
+      gqlAPIServiceArguments.filter = filter;
+    }
+    return API.graphql(
+      graphqlOperation(statement, gqlAPIServiceArguments)
+    ) as Observable<
+      SubscriptionResponse<Pick<__SubscriptionContainer, "onDeleteRestaurant">>
+    >;
+  }
 }

@@ -17,6 +17,11 @@
       <label>City: </label>
       <input type="text" formControlName="city" autocomplete="off" />
     </div>
+    <div>
+      <label>Stars: </label>
+      <input type="text" formControlName="stars" autocomplete="off" />
+    </div>
+
     <button type="submit">Submit</button>
   </form>
 </div>
@@ -25,6 +30,8 @@
   <div>{{ restaurant?.city }}</div>
   <div>{{ restaurant?.name }}</div>
   <div>{{ restaurant?.description }}</div>
+  <div>{{ restaurant?.stars }}</div>
+ 
 </div>
 
 
