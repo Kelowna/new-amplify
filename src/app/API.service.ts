@@ -21,6 +21,7 @@ export type CreateRestaurantInput = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   _version?: number | null;
 };
 
@@ -29,6 +30,7 @@ export type ModelRestaurantConditionInput = {
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
   stars?: ModelIntInput | null;
+  trouble?: ModelBooleanInput | null;
   and?: Array<ModelRestaurantConditionInput | null> | null;
   or?: Array<ModelRestaurantConditionInput | null> | null;
   not?: ModelRestaurantConditionInput | null;
@@ -85,6 +87,13 @@ export type ModelIntInput = {
   attributeType?: ModelAttributeTypes | null;
 };
 
+export type ModelBooleanInput = {
+  ne?: boolean | null;
+  eq?: boolean | null;
+  attributeExists?: boolean | null;
+  attributeType?: ModelAttributeTypes | null;
+};
+
 export type Restaurant = {
   __typename: "Restaurant";
   id: string;
@@ -92,6 +101,7 @@ export type Restaurant = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -105,6 +115,7 @@ export type UpdateRestaurantInput = {
   description?: string | null;
   city?: string | null;
   stars?: number | null;
+  trouble?: boolean | null;
   _version?: number | null;
 };
 
@@ -119,6 +130,7 @@ export type ModelRestaurantFilterInput = {
   description?: ModelStringInput | null;
   city?: ModelStringInput | null;
   stars?: ModelIntInput | null;
+  trouble?: ModelBooleanInput | null;
   and?: Array<ModelRestaurantFilterInput | null> | null;
   or?: Array<ModelRestaurantFilterInput | null> | null;
   not?: ModelRestaurantFilterInput | null;
@@ -153,6 +165,7 @@ export type ModelSubscriptionRestaurantFilterInput = {
   description?: ModelSubscriptionStringInput | null;
   city?: ModelSubscriptionStringInput | null;
   stars?: ModelSubscriptionIntInput | null;
+  trouble?: ModelSubscriptionBooleanInput | null;
   and?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
   or?: Array<ModelSubscriptionRestaurantFilterInput | null> | null;
 };
@@ -199,6 +212,11 @@ export type ModelSubscriptionIntInput = {
   notIn?: Array<number | null> | null;
 };
 
+export type ModelSubscriptionBooleanInput = {
+  ne?: boolean | null;
+  eq?: boolean | null;
+};
+
 export type CreateRestaurantMutation = {
   __typename: "Restaurant";
   id: string;
@@ -206,6 +224,7 @@ export type CreateRestaurantMutation = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -220,6 +239,7 @@ export type UpdateRestaurantMutation = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -234,6 +254,7 @@ export type DeleteRestaurantMutation = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -248,6 +269,7 @@ export type GetRestaurantQuery = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -264,6 +286,7 @@ export type ListRestaurantsQuery = {
     description: string;
     city: string;
     stars?: number | null;
+    trouble?: boolean | null;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -283,6 +306,7 @@ export type SyncRestaurantsQuery = {
     description: string;
     city: string;
     stars?: number | null;
+    trouble?: boolean | null;
     createdAt: string;
     updatedAt: string;
     _version: number;
@@ -300,6 +324,7 @@ export type OnCreateRestaurantSubscription = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -314,6 +339,7 @@ export type OnUpdateRestaurantSubscription = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -328,6 +354,7 @@ export type OnDeleteRestaurantSubscription = {
   description: string;
   city: string;
   stars?: number | null;
+  trouble?: boolean | null;
   createdAt: string;
   updatedAt: string;
   _version: number;
@@ -351,6 +378,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -381,6 +409,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -411,6 +440,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -438,6 +468,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -468,6 +499,7 @@ export class APIService {
             description
             city
             stars
+            trouble
             createdAt
             updatedAt
             _version
@@ -509,6 +541,7 @@ export class APIService {
             description
             city
             stars
+            trouble
             createdAt
             updatedAt
             _version
@@ -550,6 +583,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -581,6 +615,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version
@@ -612,6 +647,7 @@ export class APIService {
           description
           city
           stars
+          trouble
           createdAt
           updatedAt
           _version

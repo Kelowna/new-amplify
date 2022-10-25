@@ -8,6 +8,7 @@ subscription OnCreateRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version
@@ -24,6 +25,7 @@ subscription OnUpdateRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version
@@ -40,6 +42,7 @@ subscription OnDeleteRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version

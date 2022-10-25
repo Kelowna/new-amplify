@@ -9,6 +9,7 @@ mutation CreateRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version
@@ -26,6 +27,7 @@ mutation UpdateRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version
@@ -43,6 +45,7 @@ mutation DeleteRestaurant(
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version

@@ -6,6 +6,7 @@ query GetRestaurant($id: ID!) {
     description
     city
     stars
+    trouble
     createdAt
     updatedAt
     _version
@@ -25,6 +26,7 @@ query ListRestaurants(
       description
       city
       stars
+      trouble
       createdAt
       updatedAt
       _version
@@ -53,6 +55,7 @@ query SyncRestaurants(
       description
       city
       stars
+      trouble
       createdAt
       updatedAt
       _version

@@ -21,7 +21,14 @@
       <label>Stars: </label>
       <input type="text" formControlName="stars" autocomplete="off" />
     </div>
-
+    <div>
+<div class="form-check">
+  <input class="form-check-input" type="checkbox" value="" formControlName="trouble" id="flexRadioDefault1">
+  <label class="form-check-label" for="flexRadioDefault1">
+trouble  
+</label>
+</div>
+    </div>
     <button type="submit">Submit</button>
   </form>
 </div>
@@ -31,7 +38,7 @@
   <div>{{ restaurant?.name }}</div>
   <div>{{ restaurant?.description }}</div>
   <div>{{ restaurant?.stars }}</div>
- 
+  <div>{{ restaurant?.trouble }}</div> 
 </div>
 
 
