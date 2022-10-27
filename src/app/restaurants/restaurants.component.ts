@@ -18,7 +18,8 @@ export class RestaurantsComponent implements OnInit {
       name: ['', Validators.required],
       description: ['', Validators.required],
       city: ['', Validators.required],
-      stars: ['', Validators.required]
+      stars: ['', Validators.required],
+      trouble: ['', Validators.required]
     });
   }
 
