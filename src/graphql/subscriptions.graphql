@@ -9,6 +9,7 @@ subscription OnCreateRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version
@@ -26,6 +27,7 @@ subscription OnUpdateRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version
@@ -43,6 +45,7 @@ subscription OnDeleteRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version

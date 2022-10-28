@@ -45,6 +45,15 @@ export const schema = {
                     "isRequired": false,
                     "attributes": []
                 },
+                "traveltown": {
+                    "name": "traveltown",
+                    "isArray": false,
+                    "type": {
+                        "enum": "Town"
+                    },
+                    "isRequired": false,
+                    "attributes": []
+                },
                 "createdAt": {
                     "name": "createdAt",
                     "isArray": false,
@@ -88,7 +97,18 @@ export const schema = {
             ]
         }
     },
-    "enums": {},
+    "enums": {
+        "Town": {
+            "name": "Town",
+            "values": [
+                "TORONTO",
+                "MONTREAL",
+                "VANCOUVER",
+                "CALGARY",
+                "HALIFAX"
+            ]
+        }
+    },
     "nonModels": {},
-    "version": "d78f676c1b1bb16b0869269b99edbb7d"
+    "version": "23b11bc97e7ee1f04cc773b50406519e"
 };

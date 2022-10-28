@@ -1,3 +1,11 @@
+enum Town {
+  TORONTO
+  MONTREAL
+  VANCOUVER
+  CALGARY
+  HALIFAX
+}
+
 type Restaurant @model @auth(rules: [{allow: public}]) {
   id: ID!
   name: String!
@@ -5,5 +13,6 @@ type Restaurant @model @auth(rules: [{allow: public}]) {
   city: String!
   stars: Int
   trouble: Boolean
+  traveltown: Town
 }
  

@@ -10,6 +10,7 @@ mutation CreateRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version
@@ -28,6 +29,7 @@ mutation UpdateRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version
@@ -46,6 +48,7 @@ mutation DeleteRestaurant(
     city
     stars
     trouble
+    traveltown
     createdAt
     updatedAt
     _version
