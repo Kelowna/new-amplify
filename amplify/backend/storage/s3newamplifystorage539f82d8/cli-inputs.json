@@ -1,0 +1,11 @@
+{
+  "resourceName": "s3newamplifystorage539f82d8",
+  "bucketName": "new-amplify-storage-539f82d8",
+  "policyUUID": "120a4bca",
+  "storageAccess": "auth",
+  "guestAccess": [],
+  "authAccess": [
+    "READ",
+    "CREATE_AND_UPDATE"
+  ]
+}
