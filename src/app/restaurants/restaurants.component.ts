@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { APIService, Restaurant } from '../API.service';
+import { APIService, Restaurant, Town } from '../API.service';
 
 @Component({
   selector: 'app-restaurants',
@@ -12,6 +12,8 @@ export class RestaurantsComponent implements OnInit {
 
   /* declare restaurants variable */
   public restaurants: Array<Restaurant> = [];
+  
+  eTown = Town;
 
   constructor(private api: APIService, private fb: FormBuilder) {
     this.createForm = this.fb.group({
@@ -19,7 +21,8 @@ export class RestaurantsComponent implements OnInit {
       description: ['', Validators.required],
       city: ['', Validators.required],
       stars: ['', Validators.required],
-      trouble: ['', Validators.required]
+      trouble: ['', Validators.required],
+      traveltown: ['', Validators.required]
     });
   }
 

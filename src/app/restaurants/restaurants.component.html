@@ -27,6 +27,12 @@
             trouble  
          </label>
      </div>
+     <div class="mb-3">
+<select id="propertyType" >
+    <option [ngValue]="null">Select one...</option>
+    <option *ngFor="let type of eTown | keyvalue" [ngValue]="type.value">{{type.value}}</option>
+  </select>
+     </div>
     <button type="submit">Submit</button>
   </form>
 </div>
