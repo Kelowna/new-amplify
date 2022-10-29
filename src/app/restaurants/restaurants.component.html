@@ -28,7 +28,7 @@
          </label>
      </div>
      <div class="mb-3">
-<select id="propertyType" >
+<select id="propertyType" formControlName="traveltown">
     <option [ngValue]="null">Select one...</option>
     <option *ngFor="let type of eTown | keyvalue" [ngValue]="type.value">{{type.value}}</option>
   </select>
